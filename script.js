@@ -1,5 +1,7 @@
+// Wait for DOM to fully load
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Light / Dark Mode Toggle ---
+
+    // --- 1. LIGHT / DARK MODE TOGGLE (with localStorage) ---
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 2. Mobile Responsive Menu Toggle ---
+    // --- 2. RESPONSIVE MOBILE NAVIGATION MENU ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
@@ -31,17 +33,105 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 
+    // Close menu automatically when clicking nav links on mobile
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
         });
     });
 
-    // --- 3. Contact Form Submission Demo ---
+    // --- 3. ACTIVE NAV LINK HIGHLIGHT ON SCROLL ---
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${currentSection}`) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // --- 4. BACK-TO-TOP BUTTON FUNCTIONALITY ---
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // --- 5. CONTACT FORM VALIDATION ---
     const contactForm = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for reaching out! Module 02 form validation successful.');
-        contactForm.reset();
+        let isValid = true;
+
+        // Name validation check
+        if (nameInput.value.trim() === '') {
+            showError('name-error');
+            isValid = false;
+        } else {
+            hideError('name-error');
+        }
+
+        // Email validation check
+        if (!validateEmail(emailInput.value.trim())) {
+            showError('email-error');
+            isValid = false;
+        } else {
+            hideError('email-error');
+        }
+
+        // Message validation check
+        if (messageInput.value.trim() === '') {
+            showError('message-error');
+            isValid = false;
+        } else {
+            hideError('message-error');
+        }
+
+        // If form fields are completely valid
+        if (isValid) {
+            alert('Thank you for your message, Saliya! Form submitted successfully.');
+            contactForm.reset();
+        }
     });
+
+    function showError(elementId) {
+        document.getElementById(elementId).style.display = 'block';
+    }
+
+    function hideError(elementId) {
+        document.getElementById(elementId).style.display = 'none';
+    }
+
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
 });
