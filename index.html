@@ -35,10 +35,10 @@
     <section id="home" class="hero-section">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge">Welcome Portfolio</span>
+                <span class="badge">Module 03 JavaScript Portfolio</span>
                 <h1>Hi, I'm <span class="highlight">Saliya Yamakanmaradi</span></h1>
                 <p class="subtitle">BCA Student & Aspiring Web Developer</p>
-                <p class="hero-desc">Passionate about building responsive web applications with clean code and modern UI layouts.</p>
+                <p class="hero-desc">Passionate about building responsive web applications with interactive JavaScript features and smooth UI animations.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -59,7 +59,7 @@
             </div>
             <div class="about-card">
                 <p>
-                    I am a final-year Bachelor of Computer Applications (BCA) student specializing in full-stack web development. I enjoy transforming complex problems into elegant, responsive, and high-performance user interfaces using modern CSS Flexbox and Grid.
+                    I am a final-year Bachelor of Computer Applications (BCA) student specializing in full-stack web development. I enjoy building interactive client-side functionality using Vanilla JavaScript and designing modern database architectures with Python and MySQL.
                 </p>
             </div>
         </div>
@@ -95,7 +95,7 @@
                     <h3>School Event Management System</h3>
                     <p>A comprehensive system built with Python Flask backend and relational MySQL databases to manage institutional events and student registrations.</p>
                     <div class="project-tags">
-                        <span>Flask</span><span>MySQL</span><span>HTML/CSS</span>
+                        <span>Flask</span><span>MySQL</span><span>JavaScript</span>
                     </div>
                     <a href="https://github.com" target="_blank" class="btn btn-primary btn-sm">GitHub Repo</a>
                 </div>
@@ -110,15 +110,18 @@
                 <h2>Contact Me</h2>
                 <div class="underline"></div>
             </div>
-            <form id="contact-form" class="contact-form">
+            <form id="contact-form" class="contact-form" novalidate>
                 <div class="form-group">
                     <input type="text" id="name" placeholder="Your Name" required>
+                    <span class="error-msg" id="name-error">Please enter your name.</span>
                 </div>
                 <div class="form-group">
                     <input type="email" id="email" placeholder="Your Email" required>
+                    <span class="error-msg" id="email-error">Please enter a valid email address.</span>
                 </div>
                 <div class="form-group">
                     <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                    <span class="error-msg" id="message-error">Please enter a message.</span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             </form>
@@ -134,6 +137,11 @@
             </button>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
