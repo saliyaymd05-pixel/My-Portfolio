@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saliya Yamakanmaradi | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">MyPortfolio</a>
+            <nav class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. HERO / HOME SECTION -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <div class="profile-pic-wrapper">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=300" alt="Saliya Yamakanmaradi Profile" class="profile-pic">
+            </div>
+            <h1>Hi, I'm <span class="highlight">Saliya Yamakanmaradi</span></h1>
+            <p class="subtitle">BCA Student & Aspiring Web Developer</p>
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT ME SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <p class="about-text">
+                Welcome to my portfolio! I am a passionate beginner web developer currently pursuing my Bachelor of Computer Applications (BCA). I focus on building clean, responsive, and user-friendly web applications using HTML5, CSS3, JavaScript, Python, and MySQL.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. SKILLS SECTION -->
+    <section id="skills" class="section bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-list">
+                <div class="skill-bar">HTML5</div>
+                <div class="skill-bar">CSS3</div>
+                <div class="skill-bar">JavaScript</div>
+                <div class="skill-bar">Python & MySQL</div>
+                <div class="skill-bar">Git & GitHub</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>School Event Management System</h3>
+                    <p>A web application built to streamline campus events, scheduling, and student registrations with Flask and MySQL.</p>
+                    <a href="https://github.com" target="_blank" class="btn btn-primary btn-sm">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CONTACT SECTION -->
+    <section id="contact" class="section bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-flex">
+            <p>&copy; 2026 Saliya Yamakanmaradi. All rights reserved.</p>
+            <button class="dark-mode-btn" id="theme-toggle">
+                <i class="fa-solid fa-moon"></i> Dark Mode
+            </button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
